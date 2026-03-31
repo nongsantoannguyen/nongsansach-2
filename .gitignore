@@ -1,0 +1,18 @@
+# Các file chứa thông tin bảo mật (QUAN TRỌNG)
+github_token.txt
+*.env
+secrets.txt
+
+# Các thư mục rác của hệ điều hành và IDE
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Các file log hoặc file tạm
+*.log
+npm-debug.log*
+
+# Nếu sau này bạn dùng thư viện Node.js
+node_modules/
+dist/
