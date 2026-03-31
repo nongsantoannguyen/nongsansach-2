@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - Nông Sản Toàn Nguyễn</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS CHỈ DÙNG CHO TRANG THANH TOÁN */
+        .checkout-page {
+            padding: 40px 5%;
+            background: #f4f4f4;
+            min-height: 600px;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .billing-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .billing-form h3 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group label .required {
+            color: red;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        /* Phương thức thanh toán */
+        .payment-methods {
+            margin-top: 35px;
+            border-top: 1px solid #eee;
+            padding-top: 25px;
+        }
+
+        .method-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .method-item:hover {
+            background: #f9f9f9;
+        }
+
+        .method-item.active {
+            border-color: var(--primary-color);
+            background: #f1f8e9;
+        }
+
+        .method-item input[type="radio"] {
+            accent-color: var(--primary-color);
+            scale: 1.2;
+            cursor: pointer;
+        }
+
+        .method-item label {
+            cursor: pointer;
+            color: #555;
+        }
+
+        /* Review đơn hàng (sticky) */
+        .order-review {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .order-review h3 {
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        #checkout-review-list {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .summary-item span:first-child {
+            color: #666;
+        }
+
+        .summary-item span:last-child {
+            font-weight: 600;
+        }
+
+        .total-price {
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: bold;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .vat-note {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+            margin: 15px 0 25px;
+            text-align: center;
+        }
+
+        .btn-order {
+            width: 100%;
+            padding: 18px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            background: #e64a19;
+            box-shadow: 0 5px 15px rgba(230, 74, 25, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-review {
+                position: static;
+                width: 100%;
+            }
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">NÔNG SẢN TOÀN NGUYỄN MIỄN PHÍ GIAO ĐƠN HÀNG TỪ 499.000 VNĐ</div>
+    <header>
+        <div class="mobile-toggle" id="openMenu"><i class="fa-solid fa-bars"></i></div>
+        <div class="logo"><img src="./images/nong-san-toan-nguyen.webp" alt="Logo"></div>
+        <div class="search-container"><input type="text" placeholder="Tìm kiếm sản phẩm..."><i
+                class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="header-icons">
+            <span class="hotline"><i class="fa-solid fa-phone"></i> 0816.321.678</span>
+            <div class="icon-btn"><i class="fa-regular fa-user"></i></div>
+            <a href="gio-hang.html" class="icon-btn active"
+                style="position: relative; color: inherit; text-decoration: none;">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </header>
+    <nav class="nav-container">
+        <div class="category-dropdown"><i class="fa-solid fa-bars"></i> CHUYÊN MỤC</div>
+        <ul class="main-menu">
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="#">Giới Thiệu</a></li>
+            <li><a href="#">Sản Phẩm</a></li>
+            <li><a href="#">Liên Hệ</a></li>
+        </ul>
+    </nav>
+    <div class="checkout-page">
+        <h2 class="section-title">THANH TOÁN ĐƠN HÀNG</h2>
+        <div class="checkout-grid">
+            <div class="billing-form">
+                <h3><i class="fa-solid fa-truck-fast"></i> THÔNG TIN GIAO HÀNG</h3>
+
+                <div class="form-group">
+                    <label>Họ và tên <span class="required">*</span></label>
+                    <input type="text" id="fullname" placeholder="Nhập đầy đủ họ và tên người nhận">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại <span class="required">*</span></label>
+                    <input type="tel" id="phone" placeholder="Ví dụ: 0816xxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ nhận hàng đầy đủ <span class="required">*</span></label>
+                    <textarea id="address" rows="3" placeholder="Số nhà, tên đường..."></textarea>
+                </div>
+
+
+
+                <div class="payment-methods">
+                    <h3><i class="fa-solid fa-credit-card"></i> PHƯƠNG THỨC THANH TOÁN</h3>
+                    <div class="method-item active">
+                        <input type="radio" name="payment" id="cod" checked>
+                        <label for="cod"><i class="fa-solid fa-hand-holding-dollar"></i> Thanh toán khi nhận hàng
+                            (COD)</label>
+                    </div>
+                    <div class="method-item">
+                        <input type="radio" name="payment" id="bank">
+                        <label for="bank"><i class="fa-solid fa-building-columns"></i> Chuyển khoản ngân hàng</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-review">
+                <h3>ĐƠN HÀNG CỦA BẠN</h3>
+                <div id="checkout-review-list"></div>
+
+                <div class="summary-item"><span>Tạm tính</span> <span id="checkout-subtotal">0đ</span></div>
+                <div class="summary-item"><span>Phí giao hàng</span> <span>Miễn phí</span></div>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 15px 0;">
+                <div class="summary-item total-price"><span>Tổng cộng</span> <span id="checkout-total-price">0đ</span>
+                </div>
+
+                <p class="vat-note">(Giá đã bao gồm VAT nếu có)</p>
+                <button class="btn-order" id="placeOrderBtn">ĐẶT HÀNG NGAY</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-steps" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;">
+        <span style="color: #888;">1. Giỏ hàng</span>
+        <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
+        <span style="color: var(--primary-color); font-weight: bold;">2. Thanh toán</span>
+        <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
+        <span style="color: #888;">3. Hoàn tất</span>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>VỀ CHÚNG TÔI</h4>
+                <p>Nông Sản Toàn Nguyễn chuyên cung cấp thực phẩm sạch...</p>
+            </div>
+            <div class="footer-col">
+                <h4>LIÊN KẾT</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="#">Giao hàng</a></li>
+                    <li><a href="#">Điều khoản</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>HỖ TRỢ</h4>
+                <p><i class="fa-solid fa-location-dot"></i> TP. Hà Nội</p>
+                <p><i class="fa-solid fa-envelope"></i> toannguyen@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> 0816.321.678</p>
+            </div>
+        </div>
+        <div class="copyright">© copyright 2026 by Toàn Nguyễn</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

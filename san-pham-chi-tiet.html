@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cà chua hữu cơ - Nông Sản Toàn Nguyễn</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS CHỈ DÙNG CHO TRANG CHI TIẾT (Có thể tách ra file san-pham.css) */
+        
+        .breadcrumb {
+            padding: 20px 5%;
+            font-size: 14px;
+            color: #888;
+            background: #f9f9f9;
+        }
+        .breadcrumb a { text-decoration: none; color: #555; margin-right: 5px;}
+        .breadcrumb span { color: #ccc;}
+
+        .product-detail-container {
+            display: flex;
+            padding: 40px 5%;
+            gap: 40px;
+            background: #fff;
+        }
+
+        /* Bên Trái: Ảnh */
+        .product-gallery { width: 45%; flex-shrink: 0;}
+        .main-image {
+            width: 100%; height: 400px;
+            object-fit: cover; border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        /* Bên Phải: Thông tin */
+        .product-info { flex-grow: 1;}
+        .product-info h1 { font-size: 32px; margin: 0 0 15px;}
+        .product-meta { font-size: 14px; color: #888; margin-bottom: 20px;}
+
+        .product-price-block {
+            background: #f9f9f9; padding: 20px;
+            border-radius: 8px; margin-bottom: 25px;
+        }
+        .detail-price { font-size: 28px; color: var(--primary-color); font-weight: bold;}
+        .detail-old-price { font-size: 18px; text-decoration: line-through; color: #888; margin-left: 10px;}
+
+        .quantity-block { display: flex; align-items: center; gap: 15px; margin-bottom: 25px;}
+        .quantity-input {
+            width: 70px; padding: 10px;
+            border: 1px solid #ddd; border-radius: 5px; text-align: center;
+        }
+
+        .action-buttons { display: flex; gap: 15px;}
+        .btn-buy-now {
+            flex-grow: 1; padding: 15px;
+            background: #ff5722; color: white; text-align: center;
+            text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px;
+        }
+        .btn-buy-now:hover { background: #e64a19;}
+
+        .btn-add-cart-large {
+            padding: 15px 30px;
+            background: #fff; color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            text-decoration: none; border-radius: 5px; font-weight: bold;
+        }
+        .btn-add-cart-large:hover { background: #f1f8e9;}
+
+        /* Bên Dưới: Mô tả */
+        .product-tabs { padding: 0 5% 40px; margin-top: 40px;}
+        .tab-title { font-size: 20px; font-weight: bold; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block;}
+        .tab-content { padding: 20px 0; line-height: 1.8; color: #555;}
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .product-detail-container { flex-direction: column; padding: 20px 15px;}
+            .product-gallery, .product-info { width: 100%;}
+            .main-image { height: 300px;}
+            .action-buttons { flex-direction: column; gap: 10px;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a> <span>></span>
+        <a href="#">Rau Củ Quả</a> <span>></span>
+        <span>Cà chua sạch hữu cơ</span>
+    </div>
+
+    <div class="product-detail-container">
+        <div class="product-gallery">
+            <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=800" alt="Cà chua sạch hữu cơ" class="main-image">
+            </div>
+
+        <div class="product-info">
+            <h1>Cà chua sạch hữu cơ Đà Lạt</h1>
+            <div class="product-meta">Mã SP: TN101 | Tình trạng: Còn hàng</div>
+
+            <div class="product-price-block">
+                <span class="detail-price">35.000đ / kg</span>
+                <span class="detail-old-price">45.000đ</span>
+            </div>
+
+            <p class="short-description">Sản phẩm được trồng theo tiêu chuẩn hữu cơ, không thuốc trừ sâu, đảm bảo an toàn và tươi ngon.</p>
+
+            <div class="quantity-block">
+                <label>Số lượng:</label>
+                <input type="number" value="1" min="1" class="quantity-input">
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" class="btn-buy-now">Mua ngay</a>
+                <a href="#" class="btn-add-cart-large js-add-to-cart" data-id="101" data-name="Cà chua hữu cơ" data-price="35000">
+                    <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-tabs">
+        <div class="tab-title">Mô tả sản phẩm</div>
+        <div class="tab-content">
+            <p>Cà chua hữu cơ Đà Lạt TN101 được thu hoạch từ những nông trại sạch. Cà chua có màu đỏ tươi, vỏ mỏng, thịt dày và mọng nước. Sản phẩm phù hợp để chế biến nhiều món ăn như sa-lát, nước sốt, nấu canh hoặc ăn sống trực tiếp.</p>
+            <ul>
+                <li>Tiêu chuẩn: Hữu cơ (Organic)</li>
+                <li>Nguồn gốc: Đà Lạt, Lâm Đồng</li>
+                <li>Hạn sử dụng: 5-7 ngày kể từ ngày thu hoạch</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

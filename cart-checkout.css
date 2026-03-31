@@ -1,0 +1,137 @@
+/* cart-checkout.css */
+
+/* Style chung cho cả 2 trang */
+.cart-page, .checkout-page { padding: 40px 5%; background: #f9f9f9; min-height: 600px; }
+.summary-item { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 16px; }
+.total-price { font-size: 22px; color: #4CAF50; font-weight: bold; border-top: 1px solid #eee; padding-top: 15px; }
+
+/* Trang Giỏ Hàng */
+.cart-container { display: flex; gap: 30px; }
+.cart-table-container { flex: 2; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.cart-table { width: 100%; border-collapse: collapse; }
+.cart-table th { text-align: left; padding: 15px; border-bottom: 2px solid #eee; color: #888; }
+.cart-table td { padding: 20px 15px; border-bottom: 1px solid #eee; }
+.product-item { display: flex; align-items: center; gap: 15px; }
+.product-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; }
+.qty-input { width: 50px; padding: 5px; text-align: center; border: 1px solid #ddd; }
+.remove-btn { color: #ff5252; cursor: pointer; border: none; background: none; font-size: 18px; }
+
+/* Trang Thanh Toán */
+.checkout-grid { display: grid; grid-template-columns: 1fr 400px; gap: 30px; }
+.billing-form, .order-review { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
+.btn-order { width: 100%; padding: 18px; background: #ff5722; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+
+@media (max-width: 900px) { 
+    .cart-container, .checkout-grid { flex-direction: column; grid-template-columns: 1fr; } 
+}
+
+
+/* Thêm một chút đổ bóng đỏ cho ô input bị lỗi */
+.input-error {
+    border: 2px solid #ff5252 !important;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.remove-btn {
+    background: #ff5252;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Tổng kết đơn hàng - Thiết kế mới */
+.order-review {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px; /* Bo góc hiện đại */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Đổ bóng sâu tạo chiều sâu */
+    border: 1px solid #f0f0f0;
+    position: sticky; /* Giữ bảng luôn hiển thị khi cuộn trang */
+    top: 20px;
+}
+
+.order-review h3 {
+    font-size: 20px;
+    color: #2e7d32; /* Xanh lá đậm */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8f5e9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Thêm icon giỏ hàng trước tiêu đề (dùng FontAwesome) */
+.order-review h3::before {
+    content: "\f07a"; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.checkout-item {
+    padding: 12px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 15px;
+    color: #555;
+    transition: all 0.3s;
+}
+
+.checkout-item:hover {
+    background: #f9fff9; /* Highlight nhẹ khi di chuột qua */
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.summary-item.total-price {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #4CAF50;
+    color: #2e7d32;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.btn-order {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    background: linear-gradient(135deg, #4CAF50, #388E3C); /* Hiệu ứng màu gradient */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-order:hover {
+    transform: translateY(-3px); /* Nhảy nhẹ lên khi di chuột */
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    filter: brightness(1.1);
+}
+
+.vat-note {
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+    margin-top: 10px;
+}

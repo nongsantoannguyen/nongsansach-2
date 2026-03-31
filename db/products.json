@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Cà chua sạch hữu cơ",
+    "price": 35000,
+    "image": "images/cachua.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Cà rốt Đà Lạt",
+    "price": 28000,
+    "image": "images/carot.jpg"
+  }
+]

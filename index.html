@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nông Sản Toàn Nguyễn</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="overlay" id="menuOverlay"></div>
+
+    <div class="offcanvas-menu" id="mobileMenu">
+        <div class="offcanvas-header">
+            MENU NÔNG SẢN
+            <div class="close-btn" id="closeMenu">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <div class="offcanvas-body">
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i> Trang Chủ</a></li>
+                <li><a href="#"><i class="fa-solid fa-address-card"></i> Giới Thiệu</a></li>
+                <li><a href="#"><i class="fa-solid fa-seedling"></i> Sản Phẩm</a></li>
+                <li><a href="#"><i class="fa-solid fa-envelope"></i> Liên Hệ</a></li>
+            </ul>
+
+            <div class="offcanvas-title">Chuyên mục sản phẩm</div>
+
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-carrot"></i> Rau Củ Quả</a></li>
+                <li><a href="#"><i class="fa-solid fa-leaf"></i> Đồ Khô</a></li>
+                <li><a href="#"><i class="fa-solid fa-fish"></i> Tươi Sống</a></li>
+                <li><a href="#"><i class="fa-solid fa-bolt"></i> Super Sale</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="top-bar">NÔNG SẢN TOÀN NGUYỄN MIỄN PHÍ GIAO ĐƠN HÀNG TỪ 499.000 VNĐ</div>
+
+    <header>
+        <div class="mobile-toggle" id="openMenu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="logo">
+            <img src="./images/nong-san-toan-nguyen.webp" alt="Logo">
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="header-icons">
+            <span class="hotline"><i class="fa-solid fa-phone"></i> 0816.321.678</span>
+            <div class="icon-btn"><i class="fa-regular fa-user"></i></div>
+
+            <a href="gio-hang.html" class="icon-btn" style="text-decoration: none; color: inherit; position: relative;">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="category-dropdown"><i class="fa-solid fa-bars"></i> CHUYÊN MỤC</div>
+        <ul class="main-menu">
+            <li><a href="#">Trang Chủ</a></li>
+            <li><a href="#">Giới Thiệu</a></li>
+            <li><a href="#">Sản Phẩm</a></li>
+            <li><a href="#">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <aside class="sidebar-category">
+            <ul>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-carrot"></i> Rau Củ Quả</span><i
+                            class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-leaf"></i> Đồ Khô</span><i
+                            class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-fish"></i> Sản Phẩm Tươi Sống</span><i
+                            class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-gear"></i> Dược Liệu</span><i
+                            class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-seedling"></i> Hạt Giống</span><i
+                            class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-box"></i> Thực phẩm đóng gói</span><i
+                            class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#"><span class="cat-name"><i class="fa-solid fa-bolt"></i> Super Sale</span><span
+                            class="badge-sale">Hot</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="right-content">
+            <div class="main-banner">
+                <div class="banner-text">
+                    <h2>Nông Sản Sạch Toàn Nguyễn</h2>
+                    <p>Tươi ngon mỗi ngày - Giao hàng tận nhà</p>
+                    <a href="#" class="btn-shop">Mua ngay</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <section class="product-section">
+        <h2 class="section-title">SẢN PHẨM MỚI NHẤT</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=400"
+                    alt="Cà chua">
+                <h3>Cà chua sạch hữu cơ</h3>
+                <div class="product-price">35.000đ</div>
+                <a href="#" class="add-cart-btn js-add-to-cart" data-id="101" data-name="Cà chua hữu cơ"
+                    data-price="35000">
+                    <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng.
+                </a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=400"
+                    alt="Cà rốt">
+                <h3>Cà rốt Đà Lạt</h3>
+                <div class="product-price">28.000đ</div>
+                <a href="#" class="add-cart-btn js-add-to-cart" data-id="102" data-name="Cà rốt Đà Lạt"
+                    data-price="28000">
+                    <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
+                </a>
+            </div>
+
+              <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=400"
+                    alt="Cà chua">
+                <h3>Cà chua sạch hữu cơ</h3>
+                <div class="product-price">35.000đ</div>
+                <a href="#" class="add-cart-btn js-add-to-cart" data-id="101" data-name="Cà chua hữu cơ"
+                    data-price="35000">
+                    <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
+                </a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=400"
+                    alt="Cà rốt">
+                <h3>Cà rốt Đà Lạt</h3>
+                <div class="product-price">28.000đ</div>
+                <a href="#" class="add-cart-btn js-add-to-cart" data-id="102" data-name="Cà rốt Đà Lạt"
+                    data-price="28000">
+                    <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
+                </a>
+            </div>
+
+             <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=400"
+                    alt="Cà chua">
+                <h3>Cà chua sạch hữu cơ</h3>
+                <div class="product-price">35.000đ</div>
+                <a href="#" class="add-cart-btn js-add-to-cart" data-id="101" data-name="Cà chua hữu cơ"
+                    data-price="35000">
+                    <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
+                </a>
+
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>VỀ CHÚNG TÔI</h4>
+                <p>Nông Sản Toàn Nguyễn chuyên cung cấp thực phẩm sạch, an toàn cho mọi gia đình Việt.</p>
+            </div>
+            <div class="footer-col">
+                <h4>LIÊN KẾT</h4>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>HỖ TRỢ</h4>
+                <p><i class="fa-solid fa-location-dot"></i> TP. Hà Nội, Việt Nam</p>
+                <p><i class="fa-solid fa-envelope"></i> toannguyen1118@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> 0816.321.678</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © copyright 2026 by Toàn Nguyễn all rights reserved
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
